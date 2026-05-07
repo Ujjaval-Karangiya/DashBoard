@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Comment</title>
+  <style>
+    :root {
+      --bg-dark: #0e0e1a;
+      --bg-card: #1a1a2e;
+      --accent-purple: #9b5de5;
+      --accent-light: #f1c40f;
+      --text-color: #f4f4f4;
+      --input-bg: #2a2a40;
+      --shadow: 0 0 20px rgba(155, 93, 229, 0.2);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-dark);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent-purple);
+      margin-bottom: 10px;
+      font-size: 2.2rem;
+    }
+
+    .info {
+      text-align: center;
+      color: var(--accent-light);
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent-light);
+      font-weight: bold;
+    }
+
+    textarea {
+      width: 100%;
+      background-color: var(--input-bg);
+      border: none;
+      border-radius: 10px;
+      padding: 15px;
+      font-size: 1rem;
+      color: var(--text-color);
+      resize: vertical;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: var(--accent-purple);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #6a00f4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Edit Comment</h1>
+    <div class="info">
+      ID: <%= chats._id %><br />
+      From <strong>@<%= chats.from %></strong> to <strong>@<%= chats.to %></strong>
+    </div>
+
+    <form action="/posts/chat/<%= chats._id %>?_method=PUT" method="POST">
+      <label for="msg">Message</label>
+      <textarea name="msg" id="msg" rows="6" required><%= chats.msg.trim() %></textarea>
+
+      <button type="submit">Update Comment</button>
+    </form>
+  </div>
+</body>
+</html>

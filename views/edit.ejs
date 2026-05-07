@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Post</title>
+  <style>
+    :root {
+      --bg-dark: #0e0e1a;
+      --bg-card: #1a1a2e;
+      --accent: #00C9A7;
+      --highlight: #FFA500;
+      --text-color: #f4f4f4;
+      --input-bg: #2a2a40;
+      --shadow: 0 0 20px rgba(0, 201, 167, 0.2);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-dark);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 800px;
+      width: 90%;
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-size: 2.2rem;
+    }
+
+    .info {
+      text-align: center;
+      color: var(--highlight);
+      margin-bottom: 30px;
+      font-size: 1rem;
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: var(--highlight);
+    }
+
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background-color: var(--input-bg);
+      color: var(--text-color);
+      font-size: 1rem;
+      resize: vertical;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 14px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      background-color: var(--accent);
+      color: #121212;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #FF6B6B;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Edit Your Post</h1>
+    <div class="info">ID: <%= post.id %> | Username: <%= post.username %></div>
+
+    <form method="POST" action="/posts/<%= post.id %>?_method=patch">
+      <label for="content">Content:</label>
+      <textarea name="content" id="content"><%= post.content %></textarea>
+
+      <label for="Number">Number:</label>
+      <textarea name="Number" id="Number"><%= post.number %></textarea>
+
+      <label for="age">Age:</label>
+      <textarea name="age" id="age"><%= post.age %></textarea>
+
+      <label for="city">City:</label>
+      <textarea name="city" id="city"><%= post.city %></textarea>
+
+      <label for="district">District:</label>
+      <textarea name="district" id="district"><%= post.district %></textarea>
+
+      <label for="state">State:</label>
+      <textarea name="state" id="state"><%= post.state %></textarea>
+
+      <label for="country">Country:</label>
+      <textarea name="country" id="country"><%= post.country %></textarea>
+
+      <label for="dob">Date of Birth:</label>
+      <textarea name="dob" id="dob"><%= post.dob %></textarea>
+
+      <label for="hostel">Hostel:</label>
+      <textarea name="hostel" id="hostel"><%= post.hostel %></textarea>
+
+      <label for="study">Study:</label>
+      <textarea name="study" id="study"><%= post.study %></textarea>
+
+      <label for="hobby">Hobby:</label>
+      <textarea name="hobby" id="hobby"><%= post.hobby %></textarea>
+
+      <button type="submit">Update Post</button>
+    </form>
+  </div>
+</body>
+</html>

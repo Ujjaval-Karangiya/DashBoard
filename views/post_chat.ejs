@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chat for Post <%= postId %></title>
+  <style>
+    :root {
+      --bg-dark: #0e0e1a;
+      --bg-card: #1a1a2e;
+      --accent: #A259FF;
+      --highlight: #FFA500;
+      --text-color: #f4f4f4;
+      --input-bg: #2a2a40;
+      --btn-green: #00C9A7;
+      --btn-red: #FF6B6B;
+      --shadow: 0 0 20px rgba(162, 89, 255, 0.2);
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-color);
+      font-family: 'Poppins', sans-serif;
+      padding: 30px;
+      padding-bottom: 160px; /* Reserve space for fixed form */
+      box-sizing: border-box;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent);
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+    }
+
+    .form {
+      background-color: var(--bg-card);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 600px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 600px;
+      z-index: 1000;
+    }
+
+    input {
+      background-color: var(--input-bg);
+      border: none;
+      padding: 12px 15px;
+      border-radius: 10px;
+      color: var(--text-color);
+      font-size: 1rem;
+    }
+
+    input::placeholder {
+      color: #aaa;
+    }
+
+    button {
+      background-color: var(--btn-green);
+      color: #121212;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--btn-red);
+      color: white;
+    }
+
+    .chat-messages {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .message {
+      background-color: var(--bg-card);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    .message strong {
+      color: var(--highlight);
+      font-size: 1.1rem;
+    }
+
+    .message small {
+      display: block;
+      margin-top: 5px;
+      color: var(--btn-red);
+      font-size: 0.85rem;
+    }
+
+    .msg {
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chat for Post ID: <%= postId %></h1>
+
+  <div class="chat-messages">
+    <% messages.forEach(msg => { %>
+      <div class="message">
+        <strong>@<%= msg.from %></strong>:
+        <p class="msg"><%= msg.msg %></p>
+        <small><%= msg.createdAt.toLocaleString() %></small>
+        <br><br>
+        <form method="POST" action="/posts/<%= postId %>/chat/<%= msg._id %>?_method=DELETE">
+          <button type="submit">Delete</button>
+        </form>
+      </div>
+    <% }) %>
+    
+    
+
+  </div>
+
+  <form class="form" method="POST" action="/posts/<%= postId %>/chat">
+    <input name="from" type="text" placeholder="Your name" required />
+    <input name="msg" type="text" placeholder="Type a message" required />
+    <button type="submit">Send</button>
+  </form>
+</body>
+</html>

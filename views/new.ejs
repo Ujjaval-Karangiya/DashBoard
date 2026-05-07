@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create New Post</title>
+  <style>
+    :root {
+      --bg-dark: #0e0e1a;
+      --bg-card: #1a1a2e;
+      --accent: #00C9A7;
+      --highlight: #FFA500;
+      --text-color: #f4f4f4;
+      --input-bg: #2a2a40;
+      --shadow: 0 0 20px rgba(0, 201, 167, 0.2);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-dark);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 800px;
+      width: 90%;
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent);
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: var(--highlight);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      background: var(--input-bg);
+      border: none;
+      border-radius: 10px;
+      color: var(--text-color);
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #bbbbbb;
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      background-color: var(--accent);
+      color: #121212;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #FF6B6B;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Create a New Post</h1>
+    <form method="POST" action="/posts/new">
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" placeholder="Enter your username" required>
+
+      <label for="content">Content</label>
+      <textarea id="content" name="content" placeholder="Enter your content" rows="3" required></textarea>
+
+      <label for="img">Image URL</label>
+      <input id="img" name="img" type="text" placeholder="Enter image URL">
+
+      <label for="Number">Phone Number</label>
+      <input id="Number" name="Number" type="text" placeholder="Enter your number">
+
+      <label for="age">Age</label>
+      <input id="age" name="age" type="text" placeholder="Enter your age">
+
+      <label for="city">City</label>
+      <input id="city" name="city" type="text" placeholder="Enter your city">
+
+      <label for="district">District</label>
+      <input id="district" name="district" type="text" placeholder="Enter your district">
+
+      <label for="state">State</label>
+      <input id="state" name="state" type="text" placeholder="Enter your state">
+
+      <label for="country">Country</label>
+      <input id="country" name="country" type="text" placeholder="Enter your country">
+
+      <label for="dob">Date of Birth</label>
+      <input id="dob" name="dob" type="text" placeholder="Enter your date of birth">
+
+      <label for="hostel">Hostel</label>
+      <input id="hostel" name="hostel" type="text" placeholder="Enter your hostel">
+
+      <label for="study">Study</label>
+      <input id="study" name="study" type="text" placeholder="Enter your study">
+
+      <label for="hobby">Hobby</label>
+      <input id="hobby" name="hobby" type="text" placeholder="Enter your hobby">
+
+      <button type="submit">Create Post</button>
+    </form>
+  </div>
+</body>
+</html>

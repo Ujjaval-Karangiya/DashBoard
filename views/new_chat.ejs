@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create New Chat</title>
+  <style>
+    :root {
+      --bg-dark: #0e0e1a;
+      --bg-card: #1a1a2e;
+      --accent: #A259FF;
+      --highlight: #f1c40f;
+      --text-color: #f4f4f4;
+      --input-bg: #2a2a40;
+      --shadow: 0 0 20px rgba(162, 89, 255, 0.2);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-dark);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent);
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: var(--highlight);
+    }
+
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      background-color: var(--input-bg);
+      color: var(--text-color);
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #bbb;
+    }
+
+    input[type="submit"] {
+      margin-top: 25px;
+      width: 100%;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #7209B7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Create New Chat</h1>
+    <form action="/posts/chat" method="post">
+      <label for="from">From:</label>
+      <input type="text" name="from" id="from" placeholder="Who are you?" required>
+
+      <label for="msg">Message:</label>
+      <textarea name="msg" id="msg" placeholder="Enter your comment" rows="4" required></textarea>
+
+      <label for="to">To:</label>
+      <input type="text" name="to" id="to" placeholder="Receiver" required>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>

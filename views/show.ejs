@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Post Details</title>
+  <style>
+    :root {
+      --bg-dark: #0e0e1a;
+      --bg-card: #1a1a2e;
+      --accent: #A259FF;
+      --highlight: #FFA500;
+      --text-color: #f4f4f4;
+      --input-bg: #2a2a40;
+      --btn-green: #00C9A7;
+      --btn-red: #FF6B6B;
+      --shadow: 0 0 20px rgba(162, 89, 255, 0.2);
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-color);
+      font-family: 'Poppins', sans-serif;
+      padding: 30px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    h1 {
+      color: var(--accent);
+      font-size: 2.8rem;
+    }
+
+    h2 {
+      color: var(--highlight);
+      font-size: 1.8rem;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: var(--bg-card);
+      padding: 40px;
+      margin-top: 40px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      gap: 30px;
+    }
+
+    .info, .image {
+      flex: 1 1 400px;
+      padding: 20px;
+    }
+
+    .user {
+      font-size: 2rem;
+      color: var(--btn-green);
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .contain {
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: 10px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 550px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.03);
+    }
+
+    .button-row{
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .button-row a button ,.button-row form button{
+      background-color: var(--accent);
+      color: white;
+      padding: 14px 30px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+    }
+
+    .button-row a button:hover ,.button-row form button:hover {
+      background-color: #7209B7;
+    }
+  </style>
+</head>
+<body>
+  <h1>Post Details</h1>
+  <h2>Post ID: @<%= post.id %></h2>
+
+  <div class="container">
+    <div class="image">
+      <img src="<%= post.img %>" alt="Post Image">
+      
+    </div>
+
+    <div class="info">
+      <div class="user">@<%= post.username %></div>
+      <p class="contain">Content: <%= post.content %></p>
+      <p class="contain">Number: <%= post.Number %></p>
+      <p class="contain">Age: <%= post.age %></p>
+      <p class="contain">City: <%= post.city %></p>
+      <p class="contain">District: <%= post.district %></p>
+      <p class="contain">State: <%= post.state %></p>
+      <p class="contain">Country: <%= post.country %></p>
+      <p class="contain">Date of Birth: <%= post.dob %></p>
+      <p class="contain">Hostel: <%= post.hostel %></p>
+      <p class="contain">Study: <%= post.study %></p>
+      <p class="contain">Hobby: <%= post.hobby %></p>
+    </div>
+  </div>
+
+  <div class="button-row">
+    <a href="/posts/<%= post.id %>/edit">
+      <button>Edit Post</button>
+    </a>
+    <form method="POST" action="/posts/<%= post.id %>?_method=DELETE">
+      <button>Delete</button>
+    </form>
+    <a href="/posts/<%= post.id %>/chat">
+      <button>Open Chat</button>
+    </a>
+    
+  </div>
+</body>
+</html>

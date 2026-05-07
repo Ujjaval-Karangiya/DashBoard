@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat Overview</title>
+  <style>
+    :root {
+      --bg-dark: #0e0e1a;
+      --bg-card: #1a1a2e;
+      --accent: #A259FF;
+      --highlight: #FFD700;
+      --text-color: #f4f4f4;
+      --msg-bg: #2a2a40;
+      --shadow: 0 0 15px rgba(162, 89, 255, 0.3);
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-color);
+      font-family: 'Poppins', sans-serif;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent);
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+    }
+
+    .chats {
+      background-color: var(--bg-card);
+      margin: 20px auto;
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 700px;
+      box-shadow: var(--shadow);
+    }
+
+    .msg {
+      background-color: var(--msg-bg);
+      padding: 12px;
+      border-radius: 8px;
+      margin: 10px 0;
+      color: var(--highlight);
+      font-size: 1rem;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+
+    form {
+      display: inline-block;
+      margin: 10px 10px 0 0;
+    }
+
+    button {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #7209B7;
+    }
+
+    .top-action {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .top-action a button {
+      background-color: #00C9A7;
+    }
+
+    .top-action a button:hover {
+      background-color: #FF6B6B;
+    }
+
+    .user-tag {
+      color: #4ea8de;
+      font-weight: bold;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Group Comments</h1>
+
+  <div class="top-action">
+    <a href="/posts/chat/new_chat">
+      <button>Create New Comment</button>
+    </a>
+  </div>
+
+  <% for (let ch of chats) { %>
+    <div class="chats">
+      <p><strong>From:</strong> <span class="user-tag">@<%= ch.from %></span></p>
+      <p><strong>To:</strong> <span class="user-tag">@<%= ch.to %></span></p>
+
+      <div class="msg">
+        <%= ch.msg %>
+      </div>
+      <hr>
+      <p><strong>Time:</strong>
+        <%= ch.create_at.toString().split(" ")[4] %></p>
+      <p><strong>Date:</strong> <%= ch.create_at.toString().split(" ").slice(0, 4).join(" ") %></p>
+      
+      <div class=" button-group">
+          <form method="get" action="/posts/chat/<%= ch._id %>/edit">
+            <button>Edit</button>
+          </form>
+          <form method="POST" action="/posts/chat/<%= ch._id %>?_method=delete">
+            <button>Delete</button>
+          </form>
+    </div>
+
+
+    </div>
+    <% } %>
+</body>
+
+</html>
