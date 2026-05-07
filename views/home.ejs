@@ -1,204 +1,231 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard Home</title>
-
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <title>Dashboard - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, Helvetica, sans-serif;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    body{
-      background:#f4f7fc;
-      overflow-x:hidden;
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
     }
 
-    .navbar{
-      background:#111827;
-      padding:15px 40px;
+    /* Navbar */
+    .navbar {
+      background: #1e2937;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #334155;
     }
 
-    .navbar-brand{
-      color:#fff !important;
-      font-size:28px;
-      font-weight:bold;
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #60a5fa;
     }
 
-    .nav-link{
-      color:#d1d5db !important;
-      margin-left:20px;
-      transition:0.3s;
+    .nav-link {
+      color: #cbd5e1;
+      font-weight: 500;
+      margin-left: 1.5rem;
+      transition: 0.3s;
     }
 
-    .nav-link:hover{
-      color:#fff !important;
+    .nav-link:hover {
+      color: #ffffff;
     }
 
-    .hero{
-      min-height:90vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      background:linear-gradient(135deg,#2563eb,#7c3aed);
-      color:white;
-      padding:40px;
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #1e3a8a, #312e81);
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
     }
 
-    .hero h1{
-      font-size:60px;
-      font-weight:700;
-      margin-bottom:20px;
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #60a5fa, #a5b4fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .hero p{
-      font-size:20px;
-      max-width:700px;
-      margin:auto;
-      margin-bottom:30px;
+    .hero p {
+      font-size: 1.35rem;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      color: #94a3b8;
     }
 
-    .hero .btn{
-      padding:12px 28px;
-      font-size:18px;
-      border-radius:10px;
-      margin:10px;
+    .btn-dashboard {
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.4s;
     }
 
-    .features{
-      padding:80px 20px;
+    /* Stats Cards */
+    .stats {
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
     }
 
-    .feature-card{
-      background:white;
-      border-radius:20px;
-      padding:30px;
-      box-shadow:0 5px 20px rgba(0,0,0,0.08);
-      transition:0.3s;
-      height:100%;
+    .stat-card {
+      background: #1e2937;
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
     }
 
-    .feature-card:hover{
-      transform:translateY(-10px);
+    .stat-card:hover {
+      transform: translateY(-10px);
     }
 
-    .feature-icon{
-      font-size:45px;
-      margin-bottom:20px;
+    /* Features */
+    .features {
+      padding: 100px 20px;
+      background: #0f172a;
     }
 
-    footer{
-      background:#111827;
-      color:white;
-      text-align:center;
-      padding:20px;
-      margin-top:50px;
+    .feature-card {
+      background: #1e2937;
+      border-radius: 16px;
+      padding: 32px;
+      height: 100%;
+      transition: 0.4s;
+    }
+
+    .feature-card:hover {
+      background: #334155;
+      transform: scale(1.03);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
     }
   </style>
 </head>
-
 <body>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">DashBoard</a>
-
-      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <i class="fas fa-tachometer-alt"></i> Dashboard
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/posts">Posts</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/chat">Chat</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/new">Create</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/posts">Posts</a></li>
+          <li class="nav-item"><a class="nav-link" href="/posts/chat">Chat</a></li>
+          <li class="nav-item"><a class="nav-link" href="/posts/new">Create</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
-    <div>
-      <h1>Modern Dashboard Website</h1>
-
-      <p>
-        Manage posts, chats, users, and analytics with a clean and modern dashboard UI built using Node.js, Express, and EJS.
-      </p>
-
-      <a href="/posts" class="btn btn-light">Explore</a>
-      <a href="/new" class="btn btn-dark">Create Post</a>
+    <div class="container">
+      <h1>Welcome Back</h1>
+      <p>Your modern dashboard for managing posts, chats, and analytics in one place.</p>
+      <div>
+        <a href="/posts" class="btn btn-primary btn-dashboard me-3">
+          <i class="fas fa-list me-2"></i> View All Posts
+        </a>
+        <a href="/posts/new" class="btn btn-outline-light btn-dashboard">
+          <i class="fas fa-plus me-2"></i> Create New Post
+        </a>
+      </div>
     </div>
   </section>
+
+  <!-- Quick Stats -->
+  <div class="container stats">
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="stat-card">
+          <h3 class="text-info">248</h3>
+          <p class="mb-0">Total Posts</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card">
+          <h3 class="text-success">87</h3>
+          <p class="mb-0">Active Chats</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card">
+          <h3 class="text-warning">12</h3>
+          <p class="mb-0">New Messages</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card">
+          <h3 class="text-purple">1.4k</h3>
+          <p class="mb-0">Users Reached</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Features -->
-  <section class="features container">
-    <div class="text-center mb-5">
-      <h2 class="fw-bold">Features</h2>
-      <p class="text-muted">Everything you need in one dashboard</p>
-    </div>
-
-    <div class="row g-4">
-
-      <div class="col-md-4">
-        <div class="feature-card text-center">
-          <div class="feature-icon">??</div>
-          <h4>Analytics</h4>
-          <p>
-            Track performance and monitor your application data easily.
-          </p>
-        </div>
+  <section class="features">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold">Platform Features</h2>
+        <p class="text-muted">Powerful tools to manage everything efficiently</p>
       </div>
 
-      <div class="col-md-4">
-        <div class="feature-card text-center">
-          <div class="feature-icon">??</div>
-          <h4>Chat System</h4>
-          <p>
-            Real-time style messaging interface with clean UI components.
-          </p>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="feature-card text-center">
+            <div class="feature-icon">📊</div>
+            <h4>Analytics Dashboard</h4>
+            <p class="text-secondary">Track performance and user engagement with real-time insights.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card text-center">
+            <div class="feature-icon">💬</div>
+            <h4>Smart Chat System</h4>
+            <p class="text-secondary">Real-time messaging with post-specific and global chats.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card text-center">
+            <div class="feature-icon">⚡</div>
+            <h4>Fast &amp; Secure</h4>
+            <p class="text-secondary">Built with Node.js, Express, MongoDB &amp; PostgreSQL.</p>
+          </div>
         </div>
       </div>
-
-      <div class="col-md-4">
-        <div class="feature-card text-center">
-          <div class="feature-icon">?</div>
-          <h4>Fast Performance</h4>
-          <p>
-            Lightweight backend with Express and MongoDB integration.
-          </p>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>� 2026 Dashboard Project | Built with Node.js & EJS</p>
+  <footer class="py-4 text-center text-muted" style="background:#1e2937;">
+    <p>© 2026 Dashboard Project | All Rights Reserved</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
