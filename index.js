@@ -472,6 +472,7 @@ app.delete("/posts/:id", async (req, res) => {
 /* =========================================================
    SERVER
 ========================================================= */
-app.listen(process.env.PORT || port, () => {
-    console.log("Server Running");
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });
