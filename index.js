@@ -388,7 +388,9 @@ app.get("/posts/:id/edit", async (req, res) => {
 /* =========================================================
    UPDATE POST
 ========================================================= */
-
+app.get("/", (req, res) => {
+    res.render("home.ejs");
+});
 app.patch("/posts/:id", async (req, res) => {
     try {
         const { id } = req.params;
